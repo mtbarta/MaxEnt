@@ -33,6 +33,7 @@
 (defn create-features
   "creates the features and tags from the datafile."
   [filename windowsize  & features]
+  ;;partition makes this return groups of maps. map apply needs to go deeper.
   (map  #(apply select-keys % [:text :pos])
        (->>
         (lazy-file-lines filename)

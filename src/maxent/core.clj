@@ -1,5 +1,5 @@
 
-(ns summarizer.core
+(ns maxent.core
   (:require [clojure.string :as str])
   (:gen-class))
 
