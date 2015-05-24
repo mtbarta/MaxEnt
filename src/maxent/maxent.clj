@@ -33,18 +33,31 @@
 (defn create-features
   "creates the features and tags from the datafile."
   [filename windowsize  & features]
-  (map  #(apply select-keys % [:text :pos])
-       (->>
+  (let [data (->>
         (lazy-file-lines filename)
-        (window windowsize)
-        (partition windowsize))))
+        (window windowsize))]
+  #(map vec
+       (apply concat
+              (vals select-keys % [:pos :text])) data))
+  ;;condense each sequence
+)
+
    ;; windows are seqs of seqs of lines from the file.
 ;;(map #(apply
 
 ;;(println (zipmap [:one :two :three] (clojure.string/split (apply str(take 1(lazy-file-lines "/home/matt/Documents/Projects/clojure/summarizer/resources/train.txt")))#" ")))
 
 ;;(println (to-map(lazy-file-lines "/home/matt/Documents/Projects/clojure/summarizer/resources/train.txt")))
+;;(use 'clojure.walk)
+;;(println (take 2 (window 3(to-map(lazy-file-lines "/home/matt/Documents/Projects/clojure/MaxEnt/resources/train.txt")))))
+(defn inner-seq-filter
+  [seq-in-seq]
+  (println seq-in-seq)
+  (let [reduced-map (map #(select-keys % [:pos :text]) seq-in-seq)]
+    (vec (reduce concat (map #(vec (concat (vals %))) reduced-map)))))
+  
+(def test (take 2 (window 3 (to-map(lazy-file-lines "/home/matt/Documents/Projects/clojure/MaxEnt/resources/train.txt")))))
+;;(map #(apply println %) test)
+(map inner-seq-filter test)
+;;(create-features "/home/matt/Documents/Projects/clojure/MaxEnt/resources/train.txt" 2)
 
-;;(println(take 2 (window 3(to-map(lazy-file-lines "/home/matt/Documents/clojure/MaxEnt/resources/train.txt")))))
-
-(create-features "/home/matt/Documents/clojure/MaxEnt/resources/train.txt" 2)
