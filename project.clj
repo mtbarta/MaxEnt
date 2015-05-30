@@ -7,4 +7,4 @@
   :main ^:skip-aot maxent.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}}
-  :plugins [[cider/cider-nrepl "0.8.2"]])
+  :plugins [[cider/cider-nrepl "0.9.0-SNAPSHOT"]])
