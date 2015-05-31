@@ -62,5 +62,23 @@
                (do (.close rdr) nil))))]
     (helper (clojure.java.io/reader filename))))
 
+(def select-values
+  (comp vals select-keys))
+
+(defn find-key
+  "select-keys wrapper"
+  [key coll]
+  (let [i (if (= vector (type key)) key [key])]
+  (select-values coll i)))
+
+(defn probability
+  "return the marginal probability from a list of maps based on a key"
+  [key value map-coll]
+  (println map-coll)
+  (let [val-coll (map #(apply (find-key key (take-last 1  %))) map-coll)]
+    (println val-coll)
+    (let [val-freq (frequencies (concat val-coll))]
+          (find-key value val-freq))))
+
 ;(println (nth (nth (tokenize test-sample) 0)0))
 
