@@ -28,7 +28,7 @@
   [key coll]
   (let [words (reverse (flatten (map #(find-key key %) coll)))
         new-keys (map #(keyword (clojure.string/join "" %)) (partition 2 (interleave (repeat (name key)) (iterate inc 0))))]
-   (println (interleave new-keys words))))
+  (zipmap new-keys words) ))
 
 (defn interact-keys
   "multiply keys together. Result is combined on a separator"
@@ -40,14 +40,18 @@
   
 (defn assemble-features
   "create features from the transformed data"
-  [& features]
-  ;grab :pos and :text from each seq, combine :pos for another feature.
-  )
+  [coll]
+                                        ;grab :pos and :text from each seq, combine :pos for another feature.
+  (let [pos (map #(get-feat-by-key :pos %) coll)
+        text (map #(get-feat-by-key :text %)coll)]
+    (map #(into {} %) (partition 2 (interleave pos text)))))
   
-(def test-sample (take 2 (lazy-file-lines "/home/matt/Documents/Projects/clojure/MaxEnt/resources/train.txt")))
+(def test-sample (take 2 (lazy-file-lines "/home/matt/Documents/clojure/MaxEnt/resources/train.txt")))
 
 ;;(println (trail 3 (vectors-to-maps [:text :pos :chunk] (tokenize test-sample))))
 ;;(println (transform-data 3 [:text :pos :chunk] test-sample))
 (def features (transform-data 3 [:text :pos :chunk] test-sample))
-(map #(get-feat-by-key :pos %) features)
+;(println (map #(get-feat-by-key :text %) features))
+;(println features)
+(println (assemble-features features))
 
