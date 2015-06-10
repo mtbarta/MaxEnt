@@ -46,12 +46,12 @@
         text (map #(get-feat-by-key :text %)coll)]
     (map #(into {} %) (partition 2 (interleave pos text)))))
   
-(def test-sample (take 2 (lazy-file-lines "/home/matt/Documents/clojure/MaxEnt/resources/train.txt")))
+(def test-sample (take 15 (lazy-file-lines "/home/matt/Documents/clojure/MaxEnt/resources/train.txt")))
 
 ;;(println (trail 3 (vectors-to-maps [:text :pos :chunk] (tokenize test-sample))))
 ;;(println (transform-data 3 [:text :pos :chunk] test-sample))
 (def features (transform-data 3 [:text :pos :chunk] test-sample))
 ;(println (map #(get-feat-by-key :text %) features))
 ;(println features)
-(println (assemble-features features))
-
+;(println (assemble-features features))
+(println (probability :pos0 "NN" (assemble-features features)))

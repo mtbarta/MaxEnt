@@ -73,12 +73,13 @@
 
 (defn probability
   "return the marginal probability from a list of maps based on a key"
-  [key value map-coll]
-  (println map-coll)
-  (let [val-coll (map #(apply (find-key key (take-last 1  %))) map-coll)]
-    (println val-coll)
-    (let [val-freq (frequencies (concat val-coll))]
-          (find-key value val-freq))))
+  ([key value map-coll]
+   (let [newmap (group-by key map-coll)]
+     (/ (count(get newmap value))
+        (reduce +
+                (map count (vals newmap))))
+     )
+   ))
 
 ;(println (nth (nth (tokenize test-sample) 0)0))
 
