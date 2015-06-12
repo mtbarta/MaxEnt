@@ -74,7 +74,9 @@
 (defn probability
   "return the marginal probability from a list of maps based on a key"
   ([key value map-coll]
-   (let [newmap (group-by key map-coll)]
+   (let [newmap (group-by #(select-values % key) map-coll)]
+     (println (count(get newmap value)))
+     (println (reduce + (map count (vals newmap))))
      (/ (count(get newmap value))
         (reduce +
                 (map count (vals newmap))))

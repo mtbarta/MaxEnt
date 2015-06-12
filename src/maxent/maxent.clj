@@ -41,17 +41,17 @@
 (defn assemble-features
   "create features from the transformed data"
   [coll]
-                                        ;grab :pos and :text from each seq, combine :pos for another feature.
+  ;grab :pos and :text from each seq, combine :pos for another feature.
   (let [pos (map #(get-feat-by-key :pos %) coll)
         text (map #(get-feat-by-key :text %)coll)]
     (map #(into {} %) (partition 2 (interleave pos text)))))
   
 (def test-sample (take 15 (lazy-file-lines "/home/matt/Documents/clojure/MaxEnt/resources/train.txt")))
 
-;;(println (trail 3 (vectors-to-maps [:text :pos :chunk] (tokenize test-sample))))
-;;(println (transform-data 3 [:text :pos :chunk] test-sample))
-(def features (transform-data 3 [:text :pos :chunk] test-sample))
-;(println (map #(get-feat-by-key :text %) features))
-;(println features)
+
+(def features (transform-data 15 [:text :pos :chunk] test-sample))
+(def history-keys (remove :pos0 (keys features)))
+(println (probability [:pos0 :pos1] '("DT" "JJ") (assemble-features features)))
+
 ;(println (assemble-features features))
-(println (probability :pos0 "NN" (assemble-features features)))
+;(println (count (get  (group-by #(select-values % [:pos0 :pos1]) (assemble-features features)) '("DT" "JJ"))))
