@@ -12,26 +12,21 @@
   [coll]
   (let [observed]))
 
-(defn exp
-  "exponentation function for e^n"
-  [n]
-  (reduce * (repeat n 2.71828)))
-
 (defn log-loss
   "log loss!"
-  [prediction actual]
+  [actual prediction]
   ;;need loss(P(c|w) / P(w), actual)
   (if (> (* prediction actual) 18)
-    (exp -z)
+    (java.lang.Math/exp -z)
     (if (< (*prediction actual) -18)
       (-z)
-      (java.lang.Math/log (+ 1 (exp -z))))))
+      (java.lang.Math/log (+ 1 (java.lang.Math/exp -z))))))
 
 (defn dlog-loss
   "derivative of the log loss."
-  [prediction actual]
+  [actual prediction]
    (if (> (* prediction actual) 18)
-    (* (exp -(*prediction actual)) -actual)
+    (* (java.lang.Math/exp -(*prediction actual)) -actual)
     (if (< (*prediction actual) -18)
       (-actual)
-      (/ -actual (+ (exp (* prediction actual)) 1)))))
+      (/ -actual (+ (java.lang.Math/exp (* prediction actual)) 1)))))
