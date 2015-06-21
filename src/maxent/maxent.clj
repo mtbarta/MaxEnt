@@ -1,5 +1,4 @@
-(ns maxent.maxent
-  (:require [maxent.core :refer :all]))
+(in-ns 'maxent.core)
 
 (defn dot-product
   "return the dot product"
@@ -45,13 +44,29 @@
   (let [pos (map #(get-feat-by-key :pos %) coll)
         text (map #(get-feat-by-key :text %)coll)]
     (map #(into {} %) (partition 2 (interleave pos text)))))
-  
+
+(def weights (atom {})
+
+(defn predict
+  "predict based on current weights."
+  [features weights]
+  (reduce + (vals(reduce-kv * features weights))))
+
 (def test-sample (take 15 (lazy-file-lines "/home/matt/Documents/clojure/MaxEnt/resources/train.txt")))
 
 
-(def features (transform-data 15 [:text :pos :chunk] test-sample))
-(def history-keys (remove :pos0 (keys features)))
-(println (probability [:pos0 :pos1] '("DT" "JJ") (assemble-features features)))
+(def feature-list (transform-data 3 [:text :pos :chunk] test-sample))
 
-;(println (assemble-features features))
-;(println (count (get  (group-by #(select-values % [:pos0 :pos1]) (assemble-features features)) '("DT" "JJ"))))
+
+
+
+(def history-keys  (remove #(= % :pos0) (keys (first (assemble-features feature-list)))))
+;(println history-keys)
+
+
+(def f (assemble-features feature-list))
+(println (assemble-features feature-list))
+;(println (first f))
+(choices? :pos0 f)
+
+(count-features history-keys f)

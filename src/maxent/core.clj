@@ -1,7 +1,6 @@
-
 (ns maxent.core
   (:require [clojure.string :as str])
-  (:gen-class))
+  (:gen-class :main true))
 
 (defn -main
   "I don't do a whole lot ... yet."
@@ -75,13 +74,28 @@
   "return the marginal probability from a list of maps based on a key"
   ([key value map-coll]
    (let [newmap (group-by #(select-values % key) map-coll)]
-     (println (count(get newmap value)))
-     (println (reduce + (map count (vals newmap))))
+
      (/ (count(get newmap value))
         (reduce +
                 (map count (vals newmap))))
      )
    ))
 
-;(println (nth (nth (tokenize test-sample) 0)0))
+(defn cond-probability
+  "return the marginal probability from a list of maps based on a key. P(A,B)/P(B)"
+  ([key value key2 val2  map-coll]
+   (let [newmap (group-by #(select-values % key2) map-coll)]
+     
+     (/ (count (get (group-by newmap key) value)) (count(get newmap val2)))
+     )
+   ))
 
+(defn choices?
+  "find the number of choices associated with a key"
+  [key coll]
+  (distinct (flatten (map (partial find-key key) coll))))
+
+(defn count-features
+  "count the number of total features"
+  [kys coll]
+  (map #(choices? % coll) kys))
