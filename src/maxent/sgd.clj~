@@ -1,10 +1,13 @@
 (in-ns 'maxent.core)
 ;;; sequential conditional iterative scaling.
 
-(def z {})
-(def s {} )
 
-(defn scis
+(defn train-sgd
   "trains a maxent model using scis"
-  [features]
+  [coll]
   )
+
+(defn iter-sgd
+  "iteration of scis"
+  [coll]
+  (let [observed]))

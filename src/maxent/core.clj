@@ -7,6 +7,51 @@
   [& args]
   (println "Hello, World!"))
 
+(defn dot-product
+  "return the dot product"
+  [x y]
+  (->>
+   (interleave x y)
+   (partition 2 2)
+   (map #(apply * %))
+   (reduce +)))
+
+(def select-values
+  (comp vals select-keys))
+
+(defn inner-seq-filter
+  [seq-in-seq]
+  (let [reduced-map (map #(select-keys % [:pos :text]) seq-in-seq)]
+    (vec (reduce concat (map #(vec (concat (vals %))) reduced-map)))))
+
+(defn find-key
+  "select-keys wrapper"
+  [key coll]
+  (let [i (if (= vector (type key)) key [key])]
+  (select-values coll i)))
+
+(defn get-feat-by-key
+  "from our windowed data, grab the key, return a map"
+  [key coll]
+  (let [words (reverse (flatten (map #(find-key key %) coll)))
+        new-keys (map #(keyword (clojure.string/join "" %)) (partition 2 (interleave (repeat (name key)) (iterate inc 0))))]
+    (zipmap new-keys words) ))
+
+
+(defn assemble-features
+  "create features from the transformed data"
+  [coll]
+  ;grab :pos and :text from each seq, combine :pos for another feature.
+  (let [pos (map #(get-feat-by-key :pos %) coll)
+        text (map #(get-feat-by-key :text %)coll)]
+    (map #(into {} %) (partition 2 (interleave pos text)))))
+
+(defn interact-keys
+  "multiply keys together. Result is combined on a separator"
+  [coll sep & keys]
+  (->>
+   (find-key keys coll)
+   (clojure.string/join sep)))
 (defn tokenize-string
   "tokenize a string"
   [criteria string]
@@ -37,6 +82,31 @@
   (map
    #(zipmap keys %) values))
 
+(defn remove-nil-keys
+  "remove keys from a map where the value is nil."
+  [map]
+  (into {} (filter (comp not nil? val) map )))
+
+(defn feat-names
+  "join the location and word to create a feature name"
+  [coll]
+  (let [;;data (remove-nil-keys coll)
+        k (keys coll)
+        v (vals coll)]
+    (->>
+     (interleave k v)
+     (partition 2)
+     (map #(apply str (name (first %1)) "-" (second %1)))
+     (map keyword)
+     (vec))))
+
+(defn update-vals [mp vals f]
+  (map #(update-in % [%2] f) mp vals))
+
+(defn update-each
+  "Updates each keyword listed in ks on associative structure m using fn."
+  [m ks fn]
+  (reduce #(update-in %1 [%2] fn) m ks))
 
 (defn sum-counts
   "get the sum of counts over maps"
@@ -61,15 +131,6 @@
                (do (.close rdr) nil))))]
     (helper (clojure.java.io/reader filename))))
 
-(def select-values
-  (comp vals select-keys))
-
-(defn find-key
-  "select-keys wrapper"
-  [key coll]
-  (let [i (if (= vector (type key)) key [key])]
-  (select-values coll i)))
-
 (defn probability
   "return the marginal probability from a list of maps based on a key"
   ([key value map-coll]
@@ -80,6 +141,13 @@
                 (map count (vals newmap))))
      )
    ))
+
+(defn transform-data
+  [window-size keys coll]
+  (->>
+   (tokenize coll)
+   (vectors-to-maps keys)
+   (trail window-size)))
 
 (defn cond-probability
   "return the marginal probability from a list of maps based on a key. P(A,B)/P(B)"

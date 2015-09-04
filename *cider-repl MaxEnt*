@@ -1,0 +1,235 @@
+; CIDER 0.8.2 (Java 1.8.0_31, Clojure 1.6.0, nREPL 0.2.7)
+WARNING: The following required nREPL ops are not supported: 
+inspect-start inspect-reset
+Please, install (or update) cider-nrepl 0.8.2 and restart CIDER
+WARNING: CIDER's version (0.8.2) does not match cider-nrepl's version (0.9.0-snapshot)
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: feature-list in this context, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/sgd.clj:30:53) 
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: feature-list in this context, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:9:57) 
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: feature-list in this context, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:12:8) 
+(NN IN DT VBZ RB VBN TO VB JJ NNS)
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: .001 in this context, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:23:12) 
+(NN IN DT VBZ RB VBN TO VB JJ NNS)
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: .001 in this context, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:23:12) 
+(NN IN DT VBZ RB VBN TO VB JJ NNS)
+CompilerException java.lang.ClassCastException: clojure.lang.LazySeq cannot be cast to clojure.lang.IFn, compiling:(main.clj:23:12) 
+(NN IN DT VBZ RB VBN TO VB JJ NNS)
+CompilerException java.lang.ClassCastException: clojure.lang.LazySeq cannot be cast to clojure.lang.IFn, compiling:(main.clj:23:12) 
+(NN IN DT VBZ RB VBN TO VB JJ NNS)
+CompilerException java.lang.ClassCastException: clojure.lang.LazySeq cannot be cast to clojure.lang.IFn, compiling:(main.clj:23:12) 
+(NN IN DT VBZ RB VBN TO VB JJ NNS)
+CompilerException java.lang.IllegalArgumentException: Mismatched argument count to recur, expected: 1 args, got: 2, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/sgd.clj:43:7) 
+CompilerException java.lang.IllegalArgumentException: Mismatched argument count to recur, expected: 1 args, got: 2, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/sgd.clj:43:7) 
+(NN IN DT VBZ RB VBN TO VB JJ NNS)
+(NN IN DT VBZ RB VBN TO VB JJ NNS)
+CompilerException java.lang.ClassCastException: clojure.lang.LazySeq cannot be cast to java.lang.Number, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:23:43) 
+(
+(NN IN DT VBZ RB VBN TO VB JJ NNS)
+CompilerException java.lang.ClassCastException: clojure.lang.LazySeq cannot be cast to java.lang.Number, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:23:43) 
+(
+(NN IN DT VBZ RB VBN TO VB JJ NNS)
+(NN IN DT VBZ RB VBN TO VB JJ NNS)
+CompilerException java.lang.ClassCastException: clojure.lang.LazySeq cannot be cast to java.lang.Number, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:23:43) 
+(
+(NN IN DT VBZ RB VBN TO VB JJ NNS)
+CompilerException java.lang.ClassCastException: clojure.lang.LazySeq cannot be cast to java.lang.Number, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:23:43) 
+(
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: % in this context, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/maxent.clj:9:18) 
+(NN IN DT VBZ RB VBN TO VB JJ NNS)
+CompilerException java.lang.ClassCastException: java.lang.String cannot be cast to java.lang.Number, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:23:43) 
+(
+(NN IN DT VBZ RB VBN TO VB JJ NNS)
+(0
+CompilerException java.lang.NullPointerException, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:23:43) 
+(NN IN DT VBZ RB VBN TO VB JJ NNS)
+(java.lang.Long
+CompilerException java.lang.NullPointerException, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:23:43) 
+CompilerException java.lang.IllegalArgumentException: Don't know how to create ISeq from: clojure.lang.Keyword, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/maxent.clj:1:1) 
+CompilerException java.lang.Exception: Found lib name 'maxent.core' containing period with prefix 'quote'.  lib names inside prefix lists must not contain periods, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/maxent.clj:1:1) 
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: update-vals in this context, compiling:(maxent/sgd.clj:36:8) 
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: update-vals in this context, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/sgd.clj:37:8) 
+Warning: *weights* not declared dynamic and thus is not dynamically rebindable, but its name suggests otherwise. Please either indicate ^:dynamic *weights* or change the name. (/home/matt/Documents/clojure/MaxEnt/src/maxent/maxent.clj:6)
+Warning: *responses* not declared dynamic and thus is not dynamically rebindable, but its name suggests otherwise. Please either indicate ^:dynamic *responses* or change the name. (/home/matt/Documents/clojure/MaxEnt/src/maxent/maxent.clj:8)
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: weights in this context, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/maxent.clj:13:18) 
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: update-vals in this context, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/sgd.clj:37:8) 
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: update-vals in this context, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/sgd.clj:37:8) 
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: update-vals in this context, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/sgd.clj:37:8) 
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: update-vals in this context, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/sgd.clj:37:8) 
+CompilerException java.lang.RuntimeException: No such namespace: core, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/sgd.clj:37:8) 
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: feat-names in this context, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/sgd.clj:37:41) 
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: predict in this context, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/sgd.clj:33:8) 
+(NN IN DT VBZ RB VBN TO VB JJ NNS)
+CompilerException java.lang.ClassCastException: java.lang.String cannot be cast to java.lang.Number, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:23:43) 
+(
+(NN IN DT VBZ RB VBN TO VB JJ NNS)
+CompilerException java.lang.ClassCastException: java.lang.String cannot be cast to java.lang.Number, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:23:43) 
+(
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: response-index in this context, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/sgd.clj:32:13) 
+(NN IN DT VBZ RB VBN TO VB JJ NNS)
+CompilerException java.lang.ClassCastException: java.lang.String cannot be cast to java.lang.Number, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:23:43) 
+(
+(NN IN DT VBZ RB VBN TO VB JJ NNS)
+CompilerException java.lang.ClassCastException: java.lang.String cannot be cast to java.lang.Number, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:23:43) 
+(
+(NN IN DT VBZ RB VBN TO VB JJ NNS)
+CompilerException java.lang.ClassCastException: java.lang.String cannot be cast to java.lang.Number, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:23:43) 
+(
+(NN IN DT VBZ RB VBN TO VB JJ NNS)
+CompilerException java.lang.ClassCastException: java.lang.String cannot be cast to java.lang.Number, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:23:43) 
+(
+(NN IN DT VBZ RB VBN TO VB JJ NNS)
+(NN IN DT VBZ RB VBN TO VB JJ NNS)
+0
+(NN IN DT VBZ RB VBN TO VB JJ NNS)
+java.lang.Long
+java.lang.Long
+CompilerException java.lang.ClassCastException: java.lang.String cannot be cast to java.lang.Number, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:24:43) 
+(
+CompilerException java.lang.ClassCastException: java.lang.String cannot be cast to java.lang.Number, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:24:43) 
+(
+CompilerException java.lang.ClassCastException: java.lang.String cannot be cast to java.lang.Number, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:24:43) 
+(
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: values in this context, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:25:10) 
+CompilerException java.lang.ClassCastException: java.lang.String cannot be cast to java.lang.Number, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:24:43) 
+CompilerException java.lang.ClassCastException: java.lang.String cannot be cast to java.lang.Number, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:24:43) 
+CompilerException java.lang.ClassCastException: java.lang.String cannot be cast to java.lang.Number, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:24:43) 
+CompilerException java.lang.ClassCastException: java.lang.String cannot be cast to java.lang.Number, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:24:43) 
+CompilerException java.lang.ClassCastException: java.lang.String cannot be cast to java.lang.Number, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:24:43) 
+CompilerException java.lang.ClassCastException: java.lang.String cannot be cast to java.lang.Number, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:24:43) 
+CompilerException java.lang.ClassCastException: java.lang.String cannot be cast to java.lang.Number, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:24:43) 
+CompilerException java.lang.ClassCastException: java.lang.String cannot be cast to java.lang.Number, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:24:43) 
+nil
+nil
+CompilerException clojure.lang.ArityException: Wrong number of args (3) passed to: maxent/train, compiling:(main.clj:24:12) 
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: feat-names in this context, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/maxent.clj:25:15) 
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: % in this context, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/core.clj:88:24) 
+CompilerException clojure.lang.ArityException: Wrong number of args (3) passed to: maxent/train, compiling:(main.clj:24:12) 
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: feat-names in this context, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/maxent.clj:25:15) 
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: select-values in this context, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/maxent.clj:26:13) 
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: train-sgd in this context, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/maxent.clj:32:3) 
+CompilerException java.lang.ClassCastException: clojure.lang.LazySeq cannot be cast to java.lang.Number, compiling:(main.clj:24:12) 
+CompilerException java.lang.ClassCastException: clojure.lang.LazySeq cannot be cast to java.lang.Number, compiling:(main.clj:24:12) 
+{}
+CompilerException java.lang.RuntimeException: No such var: maxent.model/predict-word, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/sgd.clj:33:8) 
+CompilerException java.lang.ClassCastException: clojure.lang.LazySeq cannot be cast to clojure.lang.IFn, compiling:(main.clj:24:12) 
+{}
+CompilerException clojure.lang.ArityException: Wrong number of args (0) passed to: core/name, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:24:45) 
+(
+({:pos2 nil, :pos1 nil, :pos0 NN, :text2 nil, :text1 nil, :text0 Confidence})
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: names in this context, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:12:10) 
+CompilerException java.lang.ClassCastException: clojure.lang.LazySeq cannot be cast to clojure.lang.Named, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+CompilerException java.lang.ClassCastException: clojure.lang.PersistentArrayMap cannot be cast to clojure.lang.Named, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: feature-names in this context, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:12:22) 
+CompilerException java.lang.ClassCastException: clojure.lang.PersistentArrayMap cannot be cast to java.util.Map$Entry, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+CompilerException java.lang.ClassCastException: clojure.lang.PersistentArrayMap cannot be cast to java.util.Map$Entry, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: mape in this context, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/core.clj:88:14) 
+CompilerException clojure.lang.ArityException: Wrong number of args (0) passed to: string/join, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+CompilerException clojure.lang.ArityException: Wrong number of args (0) passed to: string/join, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+CompilerException java.lang.ClassCastException: clojure.lang.PersistentArrayMap cannot be cast to java.util.Map$Entry, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+CompilerException java.lang.ClassCastException: clojure.lang.PersistentArrayMap cannot be cast to java.util.Map$Entry, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+CompilerException java.lang.ClassCastException: clojure.lang.PersistentArrayMap cannot be cast to java.util.Map$Entry, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+CompilerException java.lang.ClassCastException: clojure.lang.PersistentArrayMap cannot be cast to java.util.Map$Entry, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+CompilerException java.lang.ClassCastException: clojure.lang.PersistentArrayMap cannot be cast to java.util.Map$Entry, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+(
+CompilerException java.lang.ClassCastException: clojure.lang.PersistentArrayMap cannot be cast to java.util.Map$Entry, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+CompilerException java.lang.ClassCastException: clojure.lang.PersistentArrayMap cannot be cast to java.util.Map$Entry, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+(
+CompilerException java.lang.ClassCastException: clojure.lang.PersistentArrayMap cannot be cast to java.util.Map$Entry, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+(
+clojure.lang.APersistentMap$KeySeq clojure.lang.APersistentMap$ValSeq
+CompilerException java.lang.ClassCastException: clojure.lang.APersistentMap$KeySeq cannot be cast to clojure.lang.Named, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+CompilerException java.lang.ClassCastException: clojure.lang.PersistentArrayMap cannot be cast to java.util.Map$Entry, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+ClassCastException clojure.lang.PersistentArrayMap cannot be cast to java.util.Map$Entry  clojure.lang.APersistentMap$KeySeq.first (APersistentMap.java:154)
+CompilerException java.lang.ClassCastException: clojure.lang.PersistentArrayMap cannot be cast to java.util.Map$Entry, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+(
+CompilerException java.lang.ClassCastException: clojure.lang.PersistentArrayMap cannot be cast to java.util.Map$Entry, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+(
+CompilerException java.lang.ClassCastException: clojure.lang.PersistentArrayMap cannot be cast to java.util.Map$Entry, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+(
+ClassCastException clojure.lang.PersistentArrayMap cannot be cast to java.util.Map$Entry  clojure.lang.APersistentMap$KeySeq.first (APersistentMap.java:154)
+ClassCastException clojure.lang.PersistentArrayMap cannot be cast to java.util.Map$Entry  clojure.lang.APersistentMap$KeySeq.first (APersistentMap.java:154)
+ClassCastException clojure.lang.PersistentArrayMap cannot be cast to java.util.Map$Entry  clojure.lang.APersistentMap$KeySeq.first (APersistentMap.java:154)
+CompilerException java.lang.ClassCastException: clojure.lang.LazySeq cannot be cast to java.util.Map$Entry, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+CompilerException java.lang.ClassCastException: clojure.lang.LazySeq cannot be cast to java.util.Map$Entry, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+CompilerException java.lang.ClassCastException: clojure.lang.PersistentArrayMap cannot be cast to java.util.Map$Entry, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+(
+CompilerException java.lang.ClassCastException: clojure.lang.PersistentArrayMap cannot be cast to java.util.Map$Entry, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+(
+({:pos2 nil, :pos1 nil, :pos0 NN, :text2 nil, :text1 nil, :text0 Confidence})
+CompilerException java.lang.ClassCastException: clojure.lang.PersistentArrayMap cannot be cast to java.util.Map$Entry, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+(
+({:pos2 nil, :pos1 nil, :pos0 NN, :text2 nil, :text1 nil, :text0 Confidence})
+{:pos2 nil, :pos1 nil, :pos0 NN, :text2 nil, :text1 nil, :text0 Confidence}
+(:pos2 :pos1 :pos0 :text2 :text1 :text0)
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: $1 in this context, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:14:39) 
+(  N:pos0N   C:text0o:text0n:text0f:text0i:text0d:text0e:text0n:text0c:text0e)
+[:pos2 nil][:pos1 nil][:pos0 "NN"][:text2 nil][:text1 nil][:text0 "Confidence"]
+(:pos2 :pos1 :pos0 :text2 :text1 :text0)NNConfidence
+(:pos2 nil :pos1 nil :pos0 NN :text2 nil :text1 nil :text0 Confidence)
+CompilerException java.lang.RuntimeException: Can't take value of a macro: #'clojure.core/->>, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:14:12) 
+(  N:pos0N   C:text0o:text0n:text0f:text0i:text0d:text0e:text0n:text0c:text0e)
+CompilerException clojure.lang.ArityException: Wrong number of args (1) passed to: core/partition, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+CompilerException java.lang.ClassCastException: clojure.lang.APersistentMap$KeySeq cannot be cast to java.lang.Number, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+(
+CompilerException java.lang.IllegalArgumentException: Don't know how to create ISeq from: clojure.lang.Keyword, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+(
+(:pos2 nil :pos1 nil :pos0 NN :text2 nil :text1 nil :text0 Confidence)
+((:pos2 nil) (:pos1 nil) (:pos0 NN) (:text2 nil) (:text1 nil) (:text0 Confidence))
+CompilerException clojure.lang.ArityException: Wrong number of args (1) passed to: core/eval10500/fn--10501, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+(
+CompilerException java.lang.ClassCastException: clojure.lang.LazySeq cannot be cast to clojure.lang.IFn, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+(
+(cclojure.lang.LazySeq@e91f73dalclojure.lang.LazySeq@e91f73daoclojure.lang.LazySeq@e91f73dajclojure.lang.LazySeq@e91f73dauclojure.lang.LazySeq@e91f73darclojure.lang.LazySeq@e91f73daeclojure.lang.LazySeq@e91f73da.clojure.lang.LazySeq@e91f73dalclojure.lang.LazySeq@e91f73daaclojure.lang.LazySeq@e91f73danclojure.lang.LazySeq@e91f73dagclojure.lang.LazySeq@e91f73da.clojure.lang.LazySeq@e91f73daLclojure.lang.LazySeq@e91f73daaclojure.lang.LazySeq@e91f73dazclojure.lang.LazySeq@e91f73dayclojure.lang.LazySeq@e91f73daSclojure.lang.LazySeq@e91f73daeclojure.lang.LazySeq@e91f73daqclojure.lang.LazySeq@e91f73da@clojure.lang.LazySeq@e91f73daeclojure.lang.LazySeq@e91f73da9clojure.lang.LazySeq@e91f73da1clojure.lang.LazySeq@e91f73dafclojure.lang.LazySeq@e91f73da7clojure.lang.LazySeq@e91f73da3clojure.lang.LazySeq@e91f73dadclojure.lang.LazySeq@e91f73daa cclojure.lang.LazySeq@e91f7b7blclojure.lang.LazySeq@e91f7b7boclojure.lang.LazySeq@e91f7b7bjclojure.lang.LazySeq@e91f7b7buclojure.lang.LazySeq@e91f7b7brclojure.lang.LazySeq@e91f7b7beclojure.lang.LazySeq@e91f7b7b.clojure.lang.LazySeq@e91f7b7blclojure.lang.LazySeq@e91f7b7baclojure.lang.LazySeq@e91f7b7bnclojure.lang.LazySeq@e91f7b7bgclojure.lang.LazySeq@e91f7b7b.clojure.lang.LazySeq@e91f7b7bLclojure.lang.LazySeq@e91f7b7baclojure.lang.LazySeq@e91f7b7bzclojure.lang.LazySeq@e91f7b7byclojure.lang.LazySeq@e91f7b7bSclojure.lang.LazySeq@e91f7b7beclojure.lang.LazySeq@e91f7b7bqclojure.lang.LazySeq@e91f7b7b@clojure.lang.LazySeq@e91f7b7beclojure.lang.LazySeq@e91f7b7b9clojure.lang.LazySeq@e91f7b7b1clojure.lang.LazySeq@e91f7b7bfclojure.lang.LazySeq@e91f7b7b7clojure.lang.LazySeq@e91f7b7bbclojure.lang.LazySeq@e91f7b7b7clojure.lang.LazySeq@e91f7b7bb
+ cclojure.lang.LazySeq@e91f6ddclclojure.lang.LazySeq@e91f6ddcoclojure.lang.LazySeq@e91f6ddcjclojure.lang.LazySeq@e91f6ddcuclojure.lang.LazySeq@e91f6ddcrclojure.lang.LazySeq@e91f6ddceclojure.lang.LazySeq@e91f6ddc.clojure.lang.LazySeq@e91f6ddclclojure.lang.LazySeq@e91f6ddcaclojure.lang.LazySeq@e91f6ddcnclojure.lang.LazySeq@e91f6ddcgclojure.lang.LazySeq@e91f6ddc.clojure.lang.LazySeq@e91f6ddcLclojure.lang.LazySeq@e91f6ddcaclojure.lang.LazySeq@e91f6ddczclojure.lang.LazySeq@e91f6ddcyclojure.lang.LazySeq@e91f6ddcSclojure.lang.LazySeq@e91f6ddceclojure.lang.LazySeq@e91f6ddcqclojure.lang.LazySeq@e91f6ddc@clojure.lang.LazySeq@e91f6ddceclojure.lang.LazySeq@e91f6ddc9clojure.lang.LazySeq@e91f6ddc1clojure.lang.LazySeq@e91f6ddcfclojure.lang.LazySeq@e91f6ddc6clojure.lang.LazySeq@e91f6ddcdclojure.lang.LazySeq@e91f6ddcdclojure.lang.LazySeq@e91f6ddcc cclojure.lang.LazySeq@429cd681lclojure.lang.LazySeq@429cd681oclojure.lang.LazySeq@429cd681jclojure.lang.LazySeq@429cd681uclojure.lang.LazySeq@429cd681rclojure.lang.LazySeq@429cd681eclojure.lang.LazySeq@429cd681.clojure.lang.LazySeq@429cd681lclojure.lang.LazySeq@429cd681aclojure.lang.LazySeq@429cd681nclojure.lang.LazySeq@429cd681gclojure.lang.LazySeq@429cd681.clojure.lang.LazySeq@429cd681Lclojure.lang.LazySeq@429cd681aclojure.lang.LazySeq@429cd681zclojure.lang.LazySeq@429cd681yclojure.lang.LazySeq@429cd681Sclojure.lang.LazySeq@429cd681eclojure.lang.LazySeq@429cd681qclojure.lang.LazySeq@429cd681@clojure.lang.LazySeq@429cd6814clojure.lang.LazySeq@429cd6812clojure.lang.LazySeq@429cd6819clojure.lang.LazySeq@429cd681cclojure.lang.LazySeq@429cd681dclojure.lang.LazySeq@429cd6816clojure.lang.LazySeq@429cd6818clojure.lang.LazySeq@429cd6811
+ cclojure.lang.LazySeq@429cafa2lclojure.lang.LazySeq@429cafa2oclojure.lang.LazySeq@429cafa2jclojure.lang.LazySeq@429cafa2uclojure.lang.LazySeq@429cafa2rclojure.lang.LazySeq@429cafa2eclojure.lang.LazySeq@429cafa2.clojure.lang.LazySeq@429cafa2lclojure.lang.LazySeq@429cafa2aclojure.lang.LazySeq@429cafa2nclojure.lang.LazySeq@429cafa2gclojure.lang.LazySeq@429cafa2.clojure.lang.LazySeq@429cafa2Lclojure.lang.LazySeq@429cafa2aclojure.lang.LazySeq@429cafa2zclojure.lang.LazySeq@429cafa2yclojure.lang.LazySeq@429cafa2Sclojure.lang.LazySeq@429cafa2eclojure.lang.LazySeq@429cafa2qclojure.lang.LazySeq@429cafa2@clojure.lang.LazySeq@429cafa24clojure.lang.LazySeq@429cafa22clojure.lang.LazySeq@429cafa29clojure.lang.LazySeq@429cafa2cclojure.lang.LazySeq@429cafa2aclojure.lang.LazySeq@429cafa2fclojure.lang.LazySeq@429cafa2aclojure.lang.LazySeq@429cafa22 cclojure.lang.LazySeq@eadbe210lclojure.lang.LazySeq@eadbe210oclojure.lang.LazySeq@eadbe210jclojure.lang.LazySeq@eadbe210uclojure.lang.LazySeq@eadbe210rclojure.lang.LazySeq@eadbe210eclojure.lang.LazySeq@eadbe210.clojure.lang.LazySeq@eadbe210lclojure.lang.LazySeq@eadbe210aclojure.lang.LazySeq@eadbe210nclojure.lang.LazySeq@eadbe210gclojure.lang.LazySeq@eadbe210.clojure.lang.LazySeq@eadbe210Lclojure.lang.LazySeq@eadbe210aclojure.lang.LazySeq@eadbe210zclojure.lang.LazySeq@eadbe210yclojure.lang.LazySeq@eadbe210Sclojure.lang.LazySeq@eadbe210eclojure.lang.LazySeq@eadbe210qclojure.lang.LazySeq@eadbe210@clojure.lang.LazySeq@eadbe210eclojure.lang.LazySeq@eadbe210aclojure.lang.LazySeq@eadbe210dclojure.lang.LazySeq@eadbe210bclojure.lang.LazySeq@eadbe210eclojure.lang.LazySeq@eadbe2102clojure.lang.LazySeq@eadbe2101clojure.lang.LazySeq@eadbe2100
+)
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: first%1 in this context, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:14:44) 
+(  N:pos0N   C:text0o:text0n:text0f:text0i:text0d:text0e:text0n:text0c:text0e)
+(nil nil NN nil nil Confidence)
+CompilerException clojure.lang.ArityException: Wrong number of args (15) passed to: core/keys, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+((nil nil NN nil nil Confidence) (nil NN IN nil Confidence in) (NN IN DT Confidence in the) (IN DT NN in the pound) (DT NN VBZ the pound is) (NN VBZ RB pound is widely) (VBZ RB VBN is widely expected) (RB VBN TO widely expected to) (VBN TO VB expected to take) (TO VB DT to take another) (VB DT JJ take another sharp) (DT JJ NN another sharp dive) (JJ NN IN sharp dive if) (NN IN NN dive if trade) (IN NN NNS if trade figures))
+((nil nil NN nil nil Confidence))
+CompilerException clojure.lang.ArityException: Wrong number of args (21) passed to: string/join, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+(
+(((:pos2 :pos1 :pos0 :text2 :text1 :text0)n(:pos2 :pos1 :pos0 :text2 :text1 :text0)i(:pos2 :pos1 :pos0 :text2 :text1 :text0)l(:pos2 :pos1 :pos0 :text2 :text1 :text0) (:pos2 :pos1 :pos0 :text2 :text1 :text0)n(:pos2 :pos1 :pos0 :text2 :text1 :text0)i(:pos2 :pos1 :pos0 :text2 :text1 :text0)l(:pos2 :pos1 :pos0 :text2 :text1 :text0) (:pos2 :pos1 :pos0 :text2 :text1 :text0)N(:pos2 :pos1 :pos0 :text2 :text1 :text0)N(:pos2 :pos1 :pos0 :text2 :text1 :text0) (:pos2 :pos1 :pos0 :text2 :text1 :text0)n(:pos2 :pos1 :pos0 :text2 :text1 :text0)i(:pos2 :pos1 :pos0 :text2 :text1 :text0)l(:pos2 :pos1 :pos0 :text2 :text1 :text0) (:pos2 :pos1 :pos0 :text2 :text1 :text0)n(:pos2 :pos1 :pos0 :text2 :text1 :text0)i(:pos2 :pos1 :pos0 :text2 :text1 :text0)l(:pos2 :pos1 :pos0 :text2 :text1 :text0) (:pos2 :pos1 :pos0 :text2 :text1 :text0)C(:pos2 :pos1 :pos0 :text2 :text1 :text0)o(:pos2 :pos1 :pos0 :text2 :text1 :text0)n(:pos2 :pos1 :pos0 :text2 :text1 :text0)f(:pos2 :pos1 :pos0 :text2 :text1 :text0)i(:pos2 :pos1 :pos0 :text2 :text1 :text0)d(:pos2 :pos1 :pos0 :text2 :text1 :text0)e(:pos2 :pos1 :pos0 :text2 :text1 :text0)n(:pos2 :pos1 :pos0 :text2 :text1 :text0)c(:pos2 :pos1 :pos0 :text2 :text1 :text0)e(:pos2 :pos1 :pos0 :text2 :text1 :text0))
+)
+(((:pos2 :pos1 :pos0 :text2 :text1 :text0) (nil nil NN nil nil Confidence)))
+((:pos2 :pos1 :pos0 :text2 :text1 :text0) (nil nil NN nil nil Confidence))
+((:pos2 :pos1 :pos0 :text2 :text1 :text0) nil)
+((:pos2 :pos1 :pos0 :text2 :text1 :text0))
+((:pos2 :pos1 :pos0 :text2 :text1 :text0))
+((:pos2 nil :pos1 nil :pos0 NN :text2 nil :text1 nil :text0 Confidence))
+((( nil : nil p NN o nil s nil 2 Confidence))
+CompilerException java.lang.ClassCastException: clojure.lang.PersistentArrayMap cannot be cast to java.util.Map$Entry, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+(
+CompilerException java.lang.ClassCastException: clojure.lang.PersistentArrayMap cannot be cast to java.util.Map$Entry, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+(
+CompilerException clojure.lang.ArityException: Wrong number of args (6) passed to: core/name, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+(
+((pos2 nil pos1 nil pos0 NN text2 nil text1 nil text0 Confidence))
+(((pos2 nil) (pos1 nil) (pos0 NN) (text2 nil) (text1 nil) (text0 Confidence)))
+(clojure.lang.LazySeq@65e7723clojure.lang.LazySeq@65e7704clojure.lang.LazySeq@65e80a5clojure.lang.LazySeq@cbb9b7bcclojure.lang.LazySeq@cbb9b79dclojure.lang.LazySeq@73f8f228)
+CompilerException java.lang.IllegalStateException: Nested #()s are not allowed, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:20:26) 
+CompilerException clojure.lang.ArityException: Wrong number of args (1) passed to: core/apply, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+(
+CompilerException clojure.lang.ArityException: Wrong number of args (1) passed to: core/map, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+(((pos2 nil) (pos1 nil) (pos0 NN) (text2 nil) (text1 nil) (text0 Confidence)))
+(clojure.lang.LazySeq@65e7723clojure.lang.LazySeq@65e7704clojure.lang.LazySeq@65e80a5clojure.lang.LazySeq@cbb9b7bcclojure.lang.LazySeq@cbb9b79dclojure.lang.LazySeq@73f8f228)
+(clojure.lang.LazySeq@d347f24)
+(((pos2 nil) (pos1 nil) (pos0 NN) (text2 nil) (text1 nil) (text0 Confidence)))
+CompilerException java.lang.ClassCastException: clojure.lang.PersistentArrayMap cannot be cast to java.util.Map$Entry, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+(
+CompilerException java.lang.IllegalArgumentException: Don't know how to create ISeq from: clojure.lang.Keyword, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:11:47) 
+((
+((:pos2 nil) (:pos1 nil) (:pos0 NN) (:text2 nil) (:text1 nil) (:text0 Confidence)) (:pos2 :pos1 :pos0 :text2 :text1 :text0) (nil nil NN nil nil Confidence)
+(:pos2 :pos1 :pos0NN :text2 :text1 :text0Confidence)
+#<core$feat_names maxent.core$feat_names@2d79479c> {:pos2 nil, :pos1 nil, :pos0 NN, :text2 nil, :text1 nil, :text0 Confidence}
+(:pos2 :pos1 :pos0NN :text2 :text1 :text0Confidence)
+(:pos2 :pos1 :pos0NN :text2 :text1 :text0Confidence)
+CompilerException java.lang.NullPointerException, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:29:45) 
+(
+(:pos2 :pos1 :pos0NN :text2 :text1 :text0Confidence)
+CompilerException java.lang.NullPointerException, compiling:(/home/matt/Documents/clojure/MaxEnt/src/maxent/main.clj:29:45) 
+(
+maxent.core> (update-vals {} :pos0 +)
+IllegalArgumentException Don't know how to create ISeq from: clojure.lang.Keyword  clojure.lang.RT.seqFrom (RT.java:505)
+maxent.core> (update-vals {} :pos0 (+)})
