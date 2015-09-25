@@ -17,44 +17,50 @@
   "derivative of the log loss."
   [^long actual ^double  prediction]
    (if (> (* prediction actual) 18)
-    (* (java.lang.Math/exp (* prediction actual)) (- 0 actual))
+    (double (* (java.lang.Math/exp (* prediction actual)) (- 0 actual)))
     (if (< (* prediction actual) -18)
-      (- 0 actual)
-      (/ (- 0 actual) (+ (java.lang.Math/exp (* prediction actual)) 1)))))
+      (double (- 0 actual))
+      (double (/ (- 0 actual) (+ (java.lang.Math/exp (* prediction actual)) 1))))))
 
 (defn update-weights
   "return a map updated from a single vector."
-  [eta weights v]
-  (let [y (maxent.maxent/response-index (first (:pos0 v)))
-        features (filter #(not= (first %) :pos0) v)
-        prediction (maxent.maxent/predict-word weights features)
-        update (* (- 0 eta) (dlog-loss y prediction))]
-    (maxent.core/update-each weights (maxent.core/feat-names features) (fnil + update))))
+  [eta predfunc weights coll]
+  (let [y (first coll)
+        feats (second coll)
+        predictions  (predfunc weights feats)]
+    (println predictions)
+    ;;y is a string. to calculate the loss, we can compare y to the keys in weights.
+     (reduce #(let [fxy (if (= (name (key %2)) y) 1 0)
+                 update (* (- 0 eta) (dlog-loss fxy (val %2)))
+                 feat-loc (partition 2 (interleave (repeat  (key %2)) feats))]
+             (maxent.core/update-each %1 feat-loc (fnil + update)
+                                      ))weights predictions)))
+    
+    ;;(reduce
+    ;; #(
+       ;;i need to update every feature vector for every output label, right? is my gradient wrong?
+    ;;   (let [fxy (if ((fnil = ) (name (first %1)) y) 1 0)
+    ;;         prediction (predfunc %1 %2)
+    ;;         update (* (- 0 eta) (dlog-loss 1 prediction))]
+    ;;    (update-in weights (seq [(keyword y) (second %2)]) (fnil + update)))) weights feats)))
+
 
 (defn iter-sgd
   "iteration of sgd"
-  [weights ^double eta coll]
-  (reduce ;;(partial update-weights eta) weights coll)
-   ;;#(let [y (maxent.maxent/response-index (:pos0 %2))
-   ;;       features (filter :pos0 %2)]
-   ;;   (->>
-   ;;    (maxent.maxent/predict-word %1 %2)
-   ;;    (dlog-loss y)
-   ;;    (* (- 0 eta))
-   ;;    (partial +)
-   ;;    (update-in weights (maxent.core/feat-names features))
-   ;;))
-   (partial update-weights eta)
-   weights
-   coll)
+  [weights ^double eta coll predfunc]
+   (reduce
+    (partial update-weights eta predfunc)
+    weights
+    coll)
   )
 
 (defn train-sgd
-  "trains a maxent model using sgd"
-  [weights ^double eta ^long iter coll]
+  "trains a maxent model using sgd. coll is a pair of (y feats)"
+  [weights eta iter coll predfunc]
+  
   (loop [i 0
          wt weights]
     (if (< i iter)
-      (recur (inc i) (iter-sgd wt eta coll))
+      (recur (inc i) (iter-sgd wt eta coll predfunc))
       wt
     )))

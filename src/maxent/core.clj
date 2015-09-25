@@ -1,11 +1,5 @@
 (ns maxent.core
-  (:require [clojure.string :as str])
-  (:gen-class :main true))
-
-(defn -main
-  "I don't do a whole lot ... yet."
-  [& args]
-  (println "Hello, World!"))
+  (:require [clojure.string :as str]))
 
 (defn dot-product
   "return the dot product"
@@ -37,6 +31,12 @@
         new-keys (map #(keyword (clojure.string/join "" %)) (partition 2 (interleave (repeat (name key)) (iterate inc 0))))]
     (zipmap new-keys words) ))
 
+(defn filter-key
+  "filter a key out of a sequence of maps"
+  [key coll]
+  (into {}
+        (filter (fn [[k v]]
+                  (not= key k)) coll)))
 
 (defn assemble-features
   "create features from the transformed data"
@@ -90,15 +90,10 @@
 (defn feat-names
   "join the location and word to create a feature name"
   [coll]
-  (let [;;data (remove-nil-keys coll)
-        k (keys coll)
-        v (vals coll)]
-    (->>
-     (interleave k v)
-     (partition 2)
-     (map #(apply str (name (first %1)) "-" (second %1)))
-     (map keyword)
-     (vec))))
+  (let [strings (map
+                 #(str
+                   (name (first %1)) "-" (second %1)) coll)]
+    (map keyword strings)))
 
 (defn update-vals [mp vals f]
   (map #(update-in % [%2] f) mp vals))
@@ -106,7 +101,7 @@
 (defn update-each
   "Updates each keyword listed in ks on associative structure m using fn."
   [m ks fn]
-  (reduce #(update-in %1 [%2] fn) m ks))
+  (reduce #(update-in %1 %2 fn) m ks))
 
 (defn sum-counts
   "get the sum of counts over maps"
