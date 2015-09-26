@@ -28,7 +28,6 @@
   (let [y (first coll)
         feats (second coll)
         predictions  (predfunc weights feats)]
-    (println predictions)
     ;;y is a string. to calculate the loss, we can compare y to the keys in weights.
      (reduce #(let [fxy (if (= (name (key %2)) y) 1 0)
                  update (* (- 0 eta) (dlog-loss fxy (val %2)))
