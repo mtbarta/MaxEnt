@@ -1,8 +1,0 @@
-;;; sequential conditional iterative scaling.
-
-(def scis-weights )
-
-(defn count-features
-  "count the number of total features"
-  [kys coll]
-  (map #(partial choices? % coll) kys))
