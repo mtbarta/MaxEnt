@@ -53,10 +53,10 @@
   (predict [this size sentence]
     "predict the labels of a new data point using a beam search."))
 ;;volatile-mutable variables are stored in main memory, unsynchronized-mutable stored in thread-local.
-(deftype Maxent [transform  weights]
+(deftype Maxent [transform  weights response-key outcome-list]
   Model
   (train
-    [this eta iter response-key outcome-list coll]
+    [this eta iter coll]
     (->>
     (let [y  (map response-key coll)
           features (map #(maxent.core/filter-key response-key %) coll)
@@ -68,8 +68,49 @@
 
   (predict
     [this size sentence]
-    (let [feats-by-word (transform sentence)]
-      (predict-probas weights)
-      (sort-map-by-value)
-      (take size)
-      (keys))))
+    (let [feats-by-word (transform sentence)
+          paths {}]
+      ;;for previous predictions
+      ;; create new hashmaps
+      ;; get predictions on current word - map over hashmaps
+      ;; rank
+      ;; get highest
+      ;; save predictions as previous
+     )))
+
+(defn beam-search
+  [size weights transform sentence]
+  (let [segmented (maxent.core/tokenize sentence)
+        sent-seq (map #(into vec %1) segmented)]
+    (loop [i 0
+           prev-preds {}
+           paths {}]
+      ;;exit somehow
+      (recur (inc i)
+             (->>
+              (assemble-new-features prev-preds i sent-seq)
+              (predict-this-word weights transform i)
+              (sort-paths)
+              (take size)
+              )
+             )))
+
+  (defn assemble-new-features
+    "creates sentence-features for predict-this-word"
+  [prev-preds word-index  sentence-seq]
+  (if (empty? prev-preds)
+    sentence-seq
+    (map #(update-in sentence-seq [word-index] conj %1) prev-preds)))
+
+(defn predict-this-word
+  "sentence-features are ((Confidence NN)(is JJ)..) sequences with each possible previous prediction already mapped."
+  [weights transform word-index sentence-features]
+  (let [feature-maps (map transform sentence-features)]
+    (map #(predict-probas weights %1) (map #(nth word-index %1) feature-maps))
+  )
+
+(defn sort-paths
+  [& paths]
+  (let [my-map (apply conj {} paths)]
+  (into (sorted-map-by (fn [key1 key2] (compare (key2 my-map) (key1 my-map)))) my-map))
+)
