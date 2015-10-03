@@ -51,23 +51,7 @@
   [coll sep & keys]
   (->>
    (find-key keys coll)
-   (clojure.string/join sep)))
-(defn tokenize-string
-  "tokenize a string"
-  [criteria string]
-  (clojure.string/split string (re-pattern criteria)))
-  
-(defn tokenize
-  "tokenize a collection of strings"
-  ([criteria coll]
-   (map #(tokenize-string criteria %) coll))
-  ([coll]
-   (map #(tokenize-string #" " %) coll)))
-
-(defn doc-freq
-  "get the document frequency of a string input"
-  [string]
-  (frequencies string))
+   (clojure.string/join sep))) 
 
 (defn to-map
   "take a line from a file and make it a map."
@@ -115,6 +99,30 @@
   [size coll]
   (let [data (lazy-cat (repeat (- size 1) nil) coll)]
     (partition size 1 data)))
+
+(defn zero-length?
+  [x]
+  (= 0 (count x)))
+
+(defn has-length?
+  [x]
+  (not (zero-length? x)))
+
+(defn whitespace?
+  [x]
+  (every? clojure.string/blank? x))
+
+(defn not-whitespace?
+  [x]
+  (not (every? clojure.string/blank? x)))
+
+(defn make-sentences
+  "from a file with a word per line, create sentences. Uses partition-by twice to get rid of empty sequences from the first partition-by."
+  [coll]
+  (->>
+   (partition-by zero-length? coll)
+   ;;(filter #(= 1 (count %)))
+   (filter not-whitespace?)))
 
 (defn lazy-file-lines
   "open a file and make it a lazy sequence."

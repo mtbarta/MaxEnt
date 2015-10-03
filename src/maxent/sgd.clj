@@ -58,7 +58,8 @@
   [weights eta iter coll predfunc]
   
   (loop [i 0
-         wt weights]
+         wt weights
+         shuffle (if (= i 0) coll (shuffle coll))]
     (if (< i iter)
       (recur (inc i) (iter-sgd wt eta coll predfunc))
       wt

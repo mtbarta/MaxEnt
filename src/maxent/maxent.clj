@@ -46,9 +46,32 @@
           (map #(- 0
                    (java.lang.Math/log %1)) scores)))
 
+(defn sort-paths
+  [& paths]
+  (let [my-map (apply conj {} paths)]
+  (into (sorted-map-by (fn [key1 key2] (compare (key2 my-map) (key1 my-map)))) my-map))
+  )
+
+(defn assemble-new-features
+  "creates sentence-features for predict-this-word"
+  [prev-preds word-index  sentence-seq]
+  (if (empty? prev-preds)
+    sentence-seq
+    (map #(update-in sentence-seq [word-index] conj %1) prev-preds)))
+
+(defn word-prediction-sequence
+  "sentence-features are ((Confidence NN)(is JJ)..) sequences with each possible previous prediction already mapped."
+  [weights transform word-index sentence-features]
+  (let [feature-maps (map transform sentence-features)]
+    (zipmap
+     (map #(nth word-index %1) feature-maps)
+     (map #(predict-probas weights %1)
+          (map #(nth word-index %1) feature-maps))
+  )))
+
 (defprotocol Model
   "defines how a maxent model should be constructed."
-  (train [this eta iter response-key outcome-list coll]
+  (train [this eta iter coll]
     "train the model on a collection of data.")
   (predict [this size sentence]
     "predict the labels of a new data point using a beam search."))
@@ -84,33 +107,19 @@
         sent-seq (map #(into vec %1) segmented)]
     (loop [i 0
            prev-preds {}
-           paths {}]
+           paths {}
+           sentences sent-seq]
       ;;exit somehow
       (recur (inc i)
              (->>
-              (assemble-new-features prev-preds i sent-seq)
-              (predict-this-word weights transform i)
+              (assemble-new-features prev-preds i sentences)
+              (word-prediction-sequence weights transform i)
               (sort-paths)
               (take size)
               )
-             )))
+             
+             ))))
 
-  (defn assemble-new-features
-    "creates sentence-features for predict-this-word"
-  [prev-preds word-index  sentence-seq]
-  (if (empty? prev-preds)
-    sentence-seq
-    (map #(update-in sentence-seq [word-index] conj %1) prev-preds)))
 
-(defn predict-this-word
-  "sentence-features are ((Confidence NN)(is JJ)..) sequences with each possible previous prediction already mapped."
-  [weights transform word-index sentence-features]
-  (let [feature-maps (map transform sentence-features)]
-    (map #(predict-probas weights %1) (map #(nth word-index %1) feature-maps))
-  )
 
-(defn sort-paths
-  [& paths]
-  (let [my-map (apply conj {} paths)]
-  (into (sorted-map-by (fn [key1 key2] (compare (key2 my-map) (key1 my-map)))) my-map))
-)
+
