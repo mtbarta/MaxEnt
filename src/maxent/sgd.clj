@@ -1,5 +1,5 @@
 (ns maxent.sgd
-  (:require maxent.core))
+  (:require maxent.core :reload))
 ;;; sgd training for maxent.
 
 (defn log-loss
@@ -22,18 +22,26 @@
       (double (- 0 actual))
       (double (/ (- 0 actual) (+ (java.lang.Math/exp (* prediction actual)) 1))))))
 
+(defn check-weights-keys
+  "add key to the weights map for another outcome"
+  [weights ky]
+  (if-not (contains? weights ky)
+    (assoc weights key {})
+    weights))
+
 (defn update-weights
   "return a map updated from a single vector."
   [eta predfunc weights coll]
   (let [y (first coll)
         feats (second coll)
-        predictions  (predfunc weights feats)]
+        wts (check-weights-keys weights y)
+        predictions  (predfunc wts feats)]
     ;;y is a string. to calculate the loss, we can compare y to the keys in weights.
      (reduce #(let [fxy (if (= (name (key %2)) y) 1 0)
                  update (* (- 0 eta) (dlog-loss fxy (val %2)))
                  feat-loc (partition 2 (interleave (repeat  (key %2)) feats))]
              (maxent.core/update-each %1 feat-loc (fnil + update)
-                                      ))weights predictions)))
+                                      ))wts predictions)))
     
     ;;(reduce
     ;; #(
@@ -61,6 +69,6 @@
          wt weights
          shuffle (if (= i 0) coll (shuffle coll))]
     (if (< i iter)
-      (recur (inc i) (iter-sgd wt eta coll predfunc))
+      (recur (inc i) (iter-sgd wt eta coll predfunc) (shuffle coll))
       wt
     )))

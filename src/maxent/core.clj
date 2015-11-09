@@ -39,7 +39,7 @@
                   (not= key k)) coll)))
 
 (defn assemble-features
-  "create features from the transformed data"
+  "create features from the collection"
   [coll]
   ;grab :pos and :text from each seq, combine :pos for another feature.
   (let [pos (map #(get-feat-by-key :pos %) coll)
@@ -117,11 +117,10 @@
   (not (every? clojure.string/blank? x)))
 
 (defn make-sentences
-  "from a file with a word per line, create sentences. Uses partition-by twice to get rid of empty sequences from the first partition-by."
+  "from a file with a word per line, create sentences."
   [coll]
   (->>
    (partition-by zero-length? coll)
-   ;;(filter #(= 1 (count %)))
    (filter not-whitespace?)))
 
 (defn lazy-file-lines
@@ -133,6 +132,28 @@
                (cons line (helper rdr))
                (do (.close rdr) nil))))]
     (helper (clojure.java.io/reader filename))))
+
+(defn tokenize
+  [coll]
+  (map #(str/split (str %1) #" ") coll))
+
+(defn drop-lastv
+  [v]
+  (let [sub (- (count v) 1)]
+    (subvec v 0 sub)))
+
+(defn transform-sentence
+  "create a feature set from a sentence such as 
+  (word POS),(word POS)"
+  [trailsize sentence]
+  (->>
+   ;;(str/split (str sentence) #" ")
+   ;;(drop-lastv)
+   (trail trailsize sentence)))
+
+(defn transform-sentences
+  [trailsize coll]
+  (map #(transform-sentence trailsize %1) coll))
 
 (defn probability
   "return the marginal probability from a list of maps based on a key"
