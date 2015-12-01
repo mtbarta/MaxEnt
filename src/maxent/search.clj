@@ -4,8 +4,9 @@
   "find a state that satisfies goal-p. Start with states, and
   search according to successors and combiner."
   [states goal-p successors combiner]
-  (if (nil? states)
-    nil
+  (cond
+    (nil? states) nil
+    (goal-p (first states)) (first states)
     (tree-search
      (combiner
       (successors (first states))
