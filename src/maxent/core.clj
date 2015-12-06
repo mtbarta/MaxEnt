@@ -121,7 +121,7 @@
   [coll]
   (->>
    (partition-by zero-length? coll)
-   (filter not-whitespace?)))
+   (filter (comp not empty?))))
 
 (defn lazy-file-lines
   "open a file and make it a lazy sequence."
@@ -133,9 +133,13 @@
                (do (.close rdr) nil))))]
     (helper (clojure.java.io/reader filename))))
 
+(defn tokenize-sent
+  [s]
+  (str/split (str s) #" ") )
+
 (defn tokenize
   [coll]
-  (map #(str/split (str %1) #" ") coll))
+  (map #(tokenize-sent coll)))
 
 (defn drop-lastv
   [v]
@@ -146,10 +150,7 @@
   "create a feature set from a sentence such as 
   (word POS),(word POS)"
   [trailsize sentence]
-  (->>
-   ;;(str/split (str sentence) #" ")
-   ;;(drop-lastv)
-   (trail trailsize sentence)))
+   (trail trailsize sentence))
 
 (defn transform-sentences
   [trailsize coll]

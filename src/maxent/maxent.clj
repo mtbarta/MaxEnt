@@ -89,7 +89,7 @@
   (predict
     [this size sentence]
     (let [paths {}]
-      (maxent.search/beam-search )
+      ;;(maxent.search/beam-search )
       ;;(maxent.search/beam-search )
       ;;for previous predictions
       ;; create new hashmaps

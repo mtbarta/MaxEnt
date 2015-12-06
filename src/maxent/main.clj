@@ -3,20 +3,23 @@
   ;;(:import [maxent.maxent Maxent]))
 
 
-(def test-sample (take 10 (maxent.core/lazy-file-lines "/home/matt/Documents/clojure/MaxEnt/resources/train.txt")))
+(def test-sample (take 43 (maxent.core/lazy-file-lines "/home/matt/Documents/clojure/MaxEnt/resources/train.txt")))
 
-;;(println (count (nth test-sample 37)))
-(def temp (map #(maxent.core/drop-lastv
-                 (maxent.core/tokenize %1)) test-sample))
-(println (take 1 temp))
-;;(def sents (maxent.core/make-sentences temp))
-;;(print (take 1 sents))
-;;(println (maxent.core/transform-sentences 2 (take 1 sents)))
+(defn get-labels
+  "get the POS tags for the data"
+  [coll]
+  (filter maxent.core/not-whitespace?
+          (map #(nth
+                 (maxent.core/tokenize-sent %1) 1) coll)))
 
+(def transformed-input (map #(butlast
+                 (maxent.core/tokenize-sent %1)) test-sample))
 
-;;the actual features
-;;(def f (maxent.core/assemble-features feature-transforms))
-;;(println f)
+(def sents (maxent.core/make-sentences transformed-input))
+
+(def trailed-data (maxent.core/transform-sentences 3 sents))
+;;(println (last (first (first (take 1 trailed-data)))))
+(println (take 1 trailed-data))
 
 (def outcome-list ["CC" "CD" "DT" "EX" "FW" "IN" "JJ" "JJR" "JJS" "LS" "MD" "NN" "NNS" "NNP" "NNPS" "PDT" "POS" "PRP" "PRP$" "RB" "RBR" "RBS" "RP" "SYM" "TO" "UH" "VB" "VBD" "VBG" "VBN" "VBP" "VBZ" "WDT" "WP" "WP$" "WRB"])
 

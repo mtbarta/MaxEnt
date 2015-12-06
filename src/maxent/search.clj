@@ -7,11 +7,11 @@
   (cond
     (nil? states) nil
     (goal-p (first states)) (first states)
-    (tree-search
-     (combiner
-      (successors (first states))
-      (rest states))
-     goal-p successors combiner)))
+    :default (tree-search
+         (combiner
+          (successors (first states))
+          (rest states))
+         goal-p successors combiner)))
 
 (defn beam-search 
   "Search the highest scoring states first until goal is reached,
