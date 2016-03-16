@@ -12,7 +12,6 @@
     weights))
 
 
-
 (defn- logistic-func
   "the logistic function to get back a probability.
   we take in the value of the coefficients as a double. "
@@ -20,7 +19,14 @@
   (let [exp (java.lang.Math/exp coefs)]
     (/ exp (+ 1 exp))))
 
-  (defn- predict-probas
+(defn- sigmoid
+  "the logistic function to get back a probability.
+  we take in the value of the coefficients as a double. "
+  [coefs]
+  (let [denom (+ 1 (java.lang.Math/exp (- 0 coefs)))]
+    (/ 1 denom)))
+
+(defn- predict-probas
   "predict the scores across all results"
   [weights features]
   (let [coefs (map

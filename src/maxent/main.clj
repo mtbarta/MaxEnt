@@ -16,17 +16,18 @@
                  (maxent.core/tokenize-sent %1)) test-sample))
 
 (def sents (maxent.core/make-sentences transformed-input))
-
+(println (take 1 sents))
+(println (last (last (take 1 sents))))
 (def trailed-data (maxent.core/transform-sentences 3 sents))
 ;;(println (last (first (first (take 1 trailed-data)))))
-(println (take 1 trailed-data))
+;;(println (take 1 trailed-data))
 
-(def outcome-list ["CC" "CD" "DT" "EX" "FW" "IN" "JJ" "JJR" "JJS" "LS" "MD" "NN" "NNS" "NNP" "NNPS" "PDT" "POS" "PRP" "PRP$" "RB" "RBR" "RBS" "RP" "SYM" "TO" "UH" "VB" "VBD" "VBG" "VBN" "VBP" "VBZ" "WDT" "WP" "WP$" "WRB"])
+;;(def outcome-list ["CC" "CD" "DT" "EX" "FW" "IN" "JJ" "JJR" "JJS" "LS" "MD" "NN" "NNS" "NNP" "NNPS" "PDT" "POS" "PRP" "PRP$" "RB" "RBR" "RBS" "RP" "SYM" "TO" "UH" "VB" "VBD" "VBG" "VBN" "VBP" "VBZ" "WDT" "WP" "WP$" "WRB"])
 
 ;;(def outcome-list ["NN"])
 
 ;;(def model (maxent.maxent/Maxent. maxent.core/feat-names {}))
-;;(maxent.maxent/train model 0.001 3 :pos0 outcome-list f)
+;;(maxent.maxent/train model 0.001 3 training-data labels) ;; need to add feats and y to params
 ;;(def model (maxent.maxent/train 0.001 2 :pos0 outcome-list f))
 ;;(println  model)
 

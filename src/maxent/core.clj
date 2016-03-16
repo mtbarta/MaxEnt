@@ -167,13 +167,6 @@
      )
    ))
 
-(defn transform-data
-  [window-size keys coll]
-  (->>
-   (tokenize coll)
-   (vectors-to-maps keys)
-   (trail window-size)))
-
 (defn cond-probability
   "return the marginal probability from a list of maps based on a key. P(A,B)/P(B)"
   ([key value key2 val2  map-coll]

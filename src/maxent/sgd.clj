@@ -38,8 +38,8 @@
         predictions  (predfunc wts feats)]
     ;;y is a string. to calculate the loss, we can compare y to the keys in weights.
      (reduce #(let [fxy (if (= (name (key %2)) y) 1 0)
-                 update (* (- 0 eta) (dlog-loss fxy (val %2)))
-                 feat-loc (partition 2 (interleave (repeat  (key %2)) feats))]
+                    update (* (- 0 eta) (dlog-loss fxy (val %2)))
+                    feat-loc (partition 2 (interleave (repeat  (key %2)) feats))]
              (maxent.core/update-each %1 feat-loc (fnil + update)
                                       ))wts predictions)))
     
